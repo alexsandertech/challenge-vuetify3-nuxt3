@@ -1,17 +1,28 @@
 <template>
-  <div style="display: flex; width: 100vw; height: 100vh; justify-content: center; align-items: center;">
-    <v-card
-      class="mx-auto"
-      width="400"
-      prepend-icon="mdi-home"
-    >
-      <template v-slot:title>
-        Test component
-      </template>
-
-      <v-card-text>
-        This is content
-      </v-card-text>
-    </v-card>
+  <div id="app">
+    <NuxtLayout class="layouts" :navLinks="navLinks">
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
+
+<script setup lang="ts">
+  import { onMounted } from 'vue';
+
+  const navLinks = [
+    { label: 'Home', path: '/' },
+    { label: 'Board', path: '/board' },
+    { label: 'Grid', path: '/grid' },
+    { label: 'Other', path: '/any' }
+  ];
+
+  onMounted(() => {
+    document.title = 'Desafio Nuxt3 Vuetify3'; // Define o título da aba
+  });
+</script>
+
+<style scoped>
+  #app {
+    background-color: rgb(241, 241, 241);
+  }
+</style>
