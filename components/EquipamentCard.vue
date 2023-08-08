@@ -1,8 +1,12 @@
 <template>
   <v-card class="wrapper-card" :class="{ highlighted: highlighted }">
-    <v-card-title class="title">{{ equipment.name }}</v-card-title>
-    <v-card-text>Type: {{ equipment.type }}</v-card-text>
-    <v-card-text>Hour count: {{ equipment.hour_count }}</v-card-text>
+    <v-card-title class="title center-item">
+      <v-icon  v-if="equipment.type == 'crane'" >mdi-crane</v-icon>
+      <v-icon  v-if="equipment.type == 'forklift'">mdi-forklift</v-icon>
+      {{ equipment.name }}
+    </v-card-title>
+    <v-card-text class="center-item">Type: {{ equipment.type }}</v-card-text>
+    <v-card-text class="wrapper-hour center-item" >Hour count: {{ equipment.hour_count }}</v-card-text>
     <v-card-text>Cost: ${{ cost }}</v-card-text>
   </v-card>
 </template>
@@ -45,8 +49,19 @@
   .wrapper-card {
     max-width: 250px;
   }
+  .center-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 5px;
+  }
   .highlighted {
-    background-color: yellow; 
+    -webkit-box-shadow: 4px 10px 24px 0px rgba(10,168,107,1);
+    -moz-box-shadow: 4px 10px 24px 0px rgba(10,168,107,1);
+    box-shadow: 4px 10px 24px 0px rgba(10,168,107,1);
+  }
+  .wrapper-hour {
+    background-color: #eeeeee; 
   }
   .title {
     background-color: #04AA6D;
