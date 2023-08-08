@@ -21,6 +21,7 @@
 
 <script setup lang="ts">
     import Navigator from './../components/Navigator.vue';
+    import { INavLinkProps } from './../types/components/navlink'
     import { useRouter } from 'vue-router';
 
     const router = useRouter();

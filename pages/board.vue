@@ -7,7 +7,12 @@
 
     <h1>Board</h1>
     <div class="wrapper-cards">
-      <EquipmentCard :equipment="equipment" ref="equipmentCardRef"/>
+      <EquipmentCard 
+        v-for="equipament in equipmentList" 
+        :key="equipament.id"
+        :equipment="equipament"
+        ref="equipamentCardRefs"
+        />
     </div>
   </v-container>
 </template>
@@ -18,17 +23,20 @@
   import { IEquipment } from './../types/components/equipament'
   import { ref } from 'vue'
 
-  const equipment = ref<IEquipment>({
-    id: '1',
-    type: 'crane',
-    name: 'Crane 001',
-    hour_count: 50
-  })
+  const equipmentList: IEquipment[] = [
+    { id: '1', type: 'crane', name: 'Crane 001', hour_count: 50 },
+    { id: '2', type: 'forklift', name: 'Forklift 002', hour_count: 50 },
+    { id: '3', type: 'forklift', name: 'Forklift 003', hour_count: 20 },
+    { id: '4', type: 'crane', name: 'Crane 002', hour_count: 10 },
+  ];
+  
+  const equipamentCardRefs = ref<InstanceType<typeof EquipmentCard>[]>([])
 
-  const equipmentCardRef = ref<InstanceType<typeof EquipmentCard> | null>(null)
   const handleClick = () => {
-    equipmentCardRef.value?.toggleHighlight()
-  }
+    equipamentCardRefs.value.forEach(ref => {
+    ref?.toggleHighlight()
+  })
+}
 </script>
 
 
@@ -47,6 +55,9 @@
       padding: 20px 2px 20px 2px;
       width: 100%;
       height: 100%;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
     }
 </style>
   
