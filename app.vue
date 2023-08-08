@@ -17,7 +17,7 @@
   ];
 
   onMounted(() => {
-    document.title = 'Desafio Nuxt3 Vuetify3'; // Define o título da aba
+    document.title = 'Desafio Nuxt3 Vuetify3';
   });
 </script>
 
