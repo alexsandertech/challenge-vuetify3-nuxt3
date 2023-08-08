@@ -24,10 +24,10 @@
   import { ref } from 'vue'
 
   const equipmentList: IEquipment[] = [
-    { id: '1', type: 'crane', name: 'Crane 001', hour_count: 50 },
-    { id: '2', type: 'forklift', name: 'Forklift 002', hour_count: 50 },
-    { id: '3', type: 'forklift', name: 'Forklift 003', hour_count: 20 },
-    { id: '4', type: 'crane', name: 'Crane 002', hour_count: 10 },
+    { id: '1', type: 'crane', name: 'Crane #001', hour_count: 50 },
+    { id: '2', type: 'forklift', name: 'Forklift #002', hour_count: 50 },
+    { id: '3', type: 'forklift', name: 'Forklift #003', hour_count: 20 },
+    { id: '4', type: 'crane', name: 'Crane #004', hour_count: 10 },
   ];
   
   const equipamentCardRefs = ref<InstanceType<typeof EquipmentCard>[]>([])
