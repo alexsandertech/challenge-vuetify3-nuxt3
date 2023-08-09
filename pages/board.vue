@@ -28,8 +28,9 @@
     { id: '1', type: 'crane', name: 'Crane #001', hour_count: 50 },
     { id: '2', type: 'forklift', name: 'Forklift #002', hour_count: 50 },
     { id: '3', type: 'forklift', name: 'Forklift #003', hour_count: 20 },
-    { id: '4', type: 'crane', name: 'Crane #004', hour_count: 10 },
+    { id: '4', type: 'crane', name: 'Crane #004', hour_count: 10, src_img: 'https://static.wixstatic.com/media/8ac9d0_c5a77d51c64e4d4f85d78deba27c2f8f.jpg/v1/fill/w_560,h_418,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/8ac9d0_c5a77d51c64e4d4f85d78deba27c2f8f.jpg' },
     { id: '5', type: 'crane', name: 'Crane #005', hour_count: 12 },
+    { id: '6', type: 'forklift', name: 'Forklift #006', hour_count: 44 },
   ];
   
   const equipamentCardRefs = ref<InstanceType<typeof EquipmentCard>[]>([])
