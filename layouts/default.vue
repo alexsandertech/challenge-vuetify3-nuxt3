@@ -34,7 +34,8 @@
 <style scoped>
   .default {
     display: flex;
-    height: calc(100vh - 40px);
+    min-height: calc(100vh - 40px);
+    height: fit-content;
     width: 100%;
     border: 1px solid #cfcfcf;
     padding: 1rem;
