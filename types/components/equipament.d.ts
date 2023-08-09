@@ -3,4 +3,5 @@ export interface IEquipment {
     type: 'crane' | 'forklift';
     name: string;
     hour_count: number;
+    src_img?: string;
 }
