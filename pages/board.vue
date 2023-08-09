@@ -12,6 +12,7 @@
         :key="equipament.id"
         :equipment="equipament"
         ref="equipamentCardRefs"
+        @submit-comment="handleComment"
         />
     </div>
   </v-container>
@@ -28,15 +29,20 @@
     { id: '2', type: 'forklift', name: 'Forklift #002', hour_count: 50 },
     { id: '3', type: 'forklift', name: 'Forklift #003', hour_count: 20 },
     { id: '4', type: 'crane', name: 'Crane #004', hour_count: 10 },
+    { id: '5', type: 'crane', name: 'Crane #005', hour_count: 12 },
   ];
   
   const equipamentCardRefs = ref<InstanceType<typeof EquipmentCard>[]>([])
 
   const handleClick = () => {
     equipamentCardRefs.value.forEach(ref => {
-    ref?.toggleHighlight()
-  })
-}
+      ref?.toggleHighlight()
+    })
+  }
+
+  const handleComment = (comment: string, id: string) => {
+    alert(`Comentário recebido card [${id}]: ${comment}`)
+  }
 </script>
 
 
@@ -48,6 +54,7 @@
     .wrapper-button {
       display: flex;
       justify-content: flex-end;
+      flex-wrap: wrap;
       width: 100%;
       height: 100%;
     }
@@ -58,6 +65,7 @@
       display: flex;
       flex-direction: row;
       gap: 20px;
+    flex-wrap: wrap;
     }
 </style>
   
