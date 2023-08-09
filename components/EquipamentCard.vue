@@ -5,14 +5,19 @@
       <v-icon  v-if="equipment.type == 'forklift'">mdi-forklift</v-icon>
       {{ equipment.name }}
     </v-card-title>
-    <v-card-text class="center-item">Type: {{ equipment.type }}</v-card-text>
-    <v-card-text class="wrapper-hour center-item" >Hour count: {{ equipment.hour_count }}</v-card-text>
-    <v-card-text>Cost: ${{ cost }}</v-card-text>
+    <v-card-text class="center-item"><strong>Type:</strong> {{ equipment.type }}</v-card-text>
+    <v-card-text class="wrapper-hour center-item" ><strong>Hour count:</strong> {{ equipment.hour_count }}</v-card-text>
+    <v-card-text><strong>Cost:</strong> ${{ cost }}</v-card-text>
+    <v-card-text>
+      <v-textarea v-model="comment" label="Comment" outlined></v-textarea>
+      <CustomButton :label="'Submit'" :onClick="submitComment" :color="'green'"/>
+    </v-card-text>
   </v-card>
 </template>
 
 <script setup lang="ts">
   import { ref, computed } from 'vue'
+  import CustomButton from './CustomButton.vue';
   import { IEquipment } from './../types/components/equipament'
 
   const highlighted = ref(false)
@@ -43,6 +48,16 @@
   }
 
   defineExpose({ toggleHighlight })
+
+  // Variável reativa para o comentário
+  const comment = ref('')
+  const emit = defineEmits<(eventName: 'submit-comment', comment: string, equipmentId: string) => void>()
+
+  const submitComment = () => {
+    emit('submit-comment', comment.value, equipment.value.id)
+    comment.value = ''
+  }
+
 </script>
 
 <style scoped>
